@@ -16,6 +16,13 @@
       [] execvm "scripts\PlatoonRoster.sqf";
    In "initplayerlocal.sqf", call the following to start the player's UI:
       ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
+   Running when a player connects or disconnects is advised to keep the roster up to date:
+      addMissionEventHandler ["PlayerConnected", {
+         "PlatoonRoster.sqf" remoteExec ["execVM", 2, false];
+      }
+	  addMissionEventHandler ["PlayerDisconnected", {
+         "PlatoonRoster.sqf" remoteExec ["execVM", 2, false];
+      }
 
  Locality & Environment:
    Execution:      Scheduled
@@ -40,7 +47,7 @@
 
 //ASSET DEFINITIONS /////////////////////////////////////////////////////////////////////////
 //
-//This section is to let you give fully custom callsigns to assets and have them dynamically show in the roster. Replace the "Spec1" with whatever you set the group's callsign to in group peroperties (EG: HAT1), replace the "Description - Callsign" with whatever you want their title bar to be in the roster (EG:"Heavy Anti-Tank Team - HAT 1"). If you don't change the asset name from the default values then they won't show in the roster so don't worry about leaving things as their defaults if you're not using them. I settled on 5 assets at max because it's highly unlikely we're going to use more. On the off chance it's needed for your mission, give Alias a ping and he'll whip up a custom version to add more.
+//This section is to let you give fully custom callsigns to assets and have them dynamically show in the roster. Replace the "Spec1" with whatever you set the group's callsign to in group peroperties (EG: HAT1), replace the "Description - Callsign" with whatever you want their title bar to be in the roster (EG:"Heavy Anti-Tank Team - HAT 1").
 
 missionNameSpace getVariable ["canRun", true];
 if !(canRun) exitwith {}; //This is a check to see if the roster has been run within the last 10s and to not do it again if so to minimise performance impact if several people connect/disconnect/change groups at once.

@@ -3,12 +3,12 @@
  Script:        afk.sqf
  Title:         Player AFK
  Author:        Falcon Charade |  Contact: Falcon Charade on github
- Version:       1.0.0          |  Last updated: 2025-08-27
+ Version:       1.0.1          |  Last updated: 2025-08-27
 
  Description:
    Allows a player to toggle afk, and avoid taking damage.
-   Going AFK moves their model underground and places a flag where they stood.
-   Returning from AFK deletes the flag and places the player where they stood before.
+   Going AFK moves their model underground and places blue arrow where they stood.
+   Returning from AFK deletes the blue arrow and places the player where they stood before.
 
  Usage:
    Example 1 - Runs on the player calling the script: 
@@ -44,7 +44,7 @@ if (player getVariable ["afk", false]) then {
 	_userAFK = _user + " AFK";
 	player setPosASL [getPosASL player select 0, getPosASL player select 1, (getPosASL player select 2) +50];
 	_plrLoc = getPos player;
-	_AFKGRAVE = missionNamespace getVariable [_userAFK, nearestObjects [_plrLoc, ["ace_flags_carrier_white"], 3]];
+	_AFKGRAVE = missionNamespace getVariable [_userAFK, nearestObjects [_plrLoc, ["Sign_Arrow_Large_Blue_F"], 3]];
 	deleteVehicle _AFKGRAVE;
 	player enableSimulationGlobal true;
 	player hideObjectGlobal false;
@@ -66,10 +66,11 @@ if (player getVariable ["afk", false]) then {
 	_userAFK = _user + " AFK";
 	
 	//Create flag
-	_AFKGRAVE = createVehicle ["ace_flags_carrier_white", _worldPos, [], 0, "NONE"];
+	_AFKGRAVE = createVehicle ["Sign_Arrow_Large_Blue_F", _worldPos, [], 0, "NONE"];
 	_AFKGRAVE setDir _AFKDir;
 	_AFKGRAVE setpos _worldPos;
-	_AFKGRAVE setObjectScale 0.5;
+	_ARRTEX = "#(argb,8,8,3)color(0,0,1,0.25,ca)";
+	_AFKGRAVE setObjectTextureGlobal [0, _texture];
 	_AFKGRAVE allowDamage false;
 	missionnamespace setVariable [_userAFK, _AFKGRAVE, true];
 	
