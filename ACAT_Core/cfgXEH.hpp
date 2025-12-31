@@ -13,4 +13,9 @@ class Extended_PostInit_EventHandlers
         // Client-only init: runs after mission init, on each client
         clientInit = "call ACAT_fnc_clientInit;";
     };
+    
+    class ACAT_Core_PostInit_Server
+    {
+        serverInit = "call ACAT_fnc_serverInit;";
+    };
 };
