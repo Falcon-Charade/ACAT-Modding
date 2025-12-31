@@ -26,7 +26,8 @@ class CfgPatches
 			"A3_Modules_F",
 			"cba_main",
             "ace_main",
-            "ace_spectator"
+            "ace_spectator",
+			"ace_interact_menu"
 		};
 
 		// List of objects (CfgVehicles classes) contained in the addon. Important also for Zeus content (units and groups) unlocking.
@@ -51,3 +52,4 @@ class CfgPatches
 #include "cfgFunctions.hpp"
 #include "cfgFactionClasses.hpp"
 #include "cfgVehicles_Modules.hpp"
+#include "cfgXEH.hpp"

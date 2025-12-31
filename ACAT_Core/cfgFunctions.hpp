@@ -6,8 +6,12 @@ class CfgFunctions
 		class Functions
 		{
             file = "\ACAT_Core\functions";
-            class addSpectateModule {}; 
 			class dbg {};
+            class clientInit {};
+            class initZeusActions {};
+            class registerPlayerActions {};
+            class registerZeusActions {};
+            class addSpectateModule {}; 
 		};
 	};
 };
