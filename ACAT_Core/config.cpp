@@ -3,7 +3,7 @@ class CfgSettings
 {
     class ACAT
     {
-        debug = 1;   // 0 = off, 1 = on
+        debug = 0;   // 0 = off, 1 = on
     };
 };
 class CfgPatches
