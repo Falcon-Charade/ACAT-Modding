@@ -1,0 +1,12 @@
+name = "ACAT - Core v1.2";
+author = "Australian Combined Arms Taskforce";
+picture = "ACAT_Core_Logo_1024.paa";
+actionName = "GitHub";
+action = "https://github.com/Falcon-Charade/Arma-Scripting";
+description = "A collection of ACAT's core scripts.";
+logo = "ACAT_Core_Logo_1024.paa";
+logoOver = "ACAT_Core_Logo_1024.paa";
+tooltip = "ACAT_Core";
+tooltipOwned = "ACAT_Core";
+overview = "A collection of ACAT's core scripts.";
+overviewPicture = "ACAT_Core_Logo_1024.paa";
